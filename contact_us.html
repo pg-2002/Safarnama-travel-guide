@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            background-image: url(i4.jpg);
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.content-wrapper {  
+  display: flex;
+  justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+}
+.container,
+.contact-info {
+    width: 35%;
+    border: 1px solid #ddd;
+    padding: 30px; 
+    border-radius: 5px;
+    box-sizing: border-box; 
+    margin: 0;
+    vertical-align: top;
+}
+
+.container form {
+    width: 100%; 
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="subject"]  {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button[type="submit"]:hover {
+    background-color: #3e8e41;
+}
+
+.contact-info {
+    text-align: center;
+}
+
+.contact-info p {
+    color: white;
+    margin-bottom: 48px;
+  padding: 10px 20px; 
+}
+.container {
+    background-color: #663dff;
+    background-image: linear-gradient(319deg, #663dff 0%, #aa00ff 37%, #cc4499 100%);
+    background-size: cover;
+      background-position: center; 
+    }
+
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="container">
+            <h1>Send us a message</h1>
+            <form action="/submit_form" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your Name">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Your Email">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Write your message here"></textarea>
+                <center><button type="submit">Send Message</button></center>
+            </form>
+        </div>
+        <div class="contact-info">
+            <h1 style="color: white;">Contact Us</h1>  
+            <p>We're open for any kind of suggestion, querry or just to have a chat</p>
+            <p>Address: Dr. B.C.Roy College<br>Academy of Professional Courses <br>Fuljhore <br> Durgapur - 713216</p>
+            <p>Phone: +1235 2355 98</p>
+            <p>Email: safarnama@gmail.com<br>Website: yoursite.com</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ PAGE</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      margin: 0;
+      background-image: url('i3.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .faq-heading {
+      border-bottom: 2px solid black; 
+      padding: 20px 60px;
+      color: black;
+    }
+    .faq-container {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .hr-line {
+      width: 60%;
+      margin: auto;
+      border: none;
+      border-top: 1px solid black;
+      margin-bottom: 10px; 
+    }
+    .strong-hr {
+      border-top: 2px solid black;
+    }
+    .faq-page {
+      color: black;
+      cursor: pointer;
+      padding: 30px 20px;
+      width: 60%;
+      border: none;
+      outline: none;
+      transition: 0.4s;
+      margin: auto;
+      background: none;
+      border-bottom: 1px solid black;
+    }
+    .faq-body {
+      display: none;
+      margin: auto;
+      width: 60%;
+      padding: 20px;
+    }
+    .faq-body p {
+      margin: 0;
+    }
+    .faq-page::after {
+      content: '\002B'; /* Plus symbol */
+      font-size: 20px;
+      color: black;
+      float: right;
+      margin-left: 5px;
+    }
+    .faq-page.active::after {
+      content: '\2212'; /* Minus symbol */
+    }   
+    .faq-page.active .faq-body {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+    <main>
+        <h1 class="faq-heading" style="color: white;">FAQ'S</h1>
+        <section class="faq-container">
+          <div class="faq-one">
+            <h3 class="faq-page">Do I need travel insurance?</h3>
+            <div class="faq-body">
+                    <p><b> Domestic travel insurance is important if you want to avoid unforeseen expenses within India. Emergencies don't come with prior notice and your journey can entail potential risks. </b></p>
+                </div>
+            </div>
+            <div class="faq-two">
+                <h3 class="faq-page">Do I need travel protection?</h3>
+                <div class="faq-body">
+                    <p><b> Travel protection is extremely important and we recommend that all travelers procure their own medical insurance, travel protection, and trip cancellation or interruption protection that is suitable for the risk they are willing to assume. </b></p>
+                </div>
+            </div>
+            <div class="faq-three">
+                <h3 class="faq-page">How do i book and pay?</h3>
+                <div class="faq-body">
+                    <p><b> We will not book or pay for your tour but will redirect you to the best websites with good deals and comforts. </b></p>
+                </div>
+            </div>
+            <div class="faq-four">
+                <h3 class="faq-page">What documents are required to travel?</h3>
+                <div class="faq-body">
+                    <p><b> The documents required for travel vary based on your itinerary and personal situation, but some documents that are useful for any trip include Passports, ID Crads, Driving License and different other certificates. </b></p>
+                </div>
+            </div>
+            <div class="faq-five">
+                <h3 class="faq-page">Where can I find an ATM in India?</h3>
+                <div class="faq-body">
+                    <p><b> ATMs linked to the international networks are situated in the main cities, as well as an increasing number of the smaller towns. But, make sure that you have a four-digit PIN code for your card, as Indian ATMs require this. </b></p>
+                </div>
+            </div>
+            <div class="faq-six">
+                <h3 class="faq-page">Will I be able to access internet?</h3>
+                <div class="faq-body">
+                    <p><b> Internet connections are available in the most part and places of India and are reasonably fast, except in some more remote rural areas. Wi-Fi access is accessible at most good hotels and growing number of cafés in the larger cities.</b></p>
+                </div>
+            </div>
+            <div class="faq-seven">
+                <h3 class="faq-page">When is the best time to travel?</h3>
+                <div class="faq-body">
+                    <p><b> The best time to travel to India is between October through March when weather is mainly sunny, dry, and warm. </b></p>
+                </div>
+            </div>
+            <div class="faq-eight">
+                <h3 class="faq-page">What are the main annual festivals or events held?</h3>
+                <div class="faq-body">
+                    <p><b>India has many festivals and events, but two of the biggest celebrations are Diwali and Holi. Diwali is the Hindu Festival of Lights celebrated annually for five days in either October or November. Holi is the Hindu Festival of Colours, celebrated annually in March after the full moon. </b></p>
+                </div>
+            </div>
+            <div class="faq-nine">
+                <h3 class="faq-page">Is tipping customary?</h3>
+                <div class="faq-body">
+                    <p><b> Tipping is not mandatory, but if you receive excellent service from your guide, driver, and hotel staff, a gratuity is appreciated. </b></p>
+                </div>
+            </div>
+            <div class="faq-ten">
+                <h3 class="faq-page">How does this website operate?</h3>
+                <div class="faq-body">
+                    <p><b> Our website provides you all kinds of information in a straightforward manner about India along with its major tourist destinations to have a wonderful tour in this country. While scrolling through the different web pages on our site, you will get detailed information about destinations that you can explore through us. Our website will also provide information about the availability of differnt hotels,food,travel options, attractions,medical facilities and other services.  </b></p>
+                </div>
+            </div>
+            <div class="faq-eleven">
+                <h3 class="faq-page">Do the airlines have restrictions on the weight of checked baggage?</h3>
+                <div class="faq-body">
+                    <p><b> Always check the airline's website before departure as policies tend to change and vary from airline to airline. Many smaller airlines used for internal India flights have lowered the weight allowance of checked baggage to 15kg. Any luggage exceeding this weight will be subject to excess baggage charges. </b></p>
+                </div>
+            </div>
+            <div class="faq-twelve">
+                <h3 class="faq-page">Will I be required to have a negative Covid-19 test result for travelling?</h3>
+                <div class="faq-body">
+                    <p><b> At this time, you will not be required to provide a negative Covid-19 test result in order to participate in our tours. The exception to this is if India requires a negative test prior to entry. We will provide you with any entry information in advance so you will be prepared but you will not be required to send WanderTours your test results.  </b></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        var faq = document.getElementsByClassName("faq-page");
+        var i;
+        for (i = 0; i < faq.length; i++) 
+        {
+            faq[i].addEventListener("click", function ()
+             {
+                this.classList.toggle("active");
+                var body = this.nextElementSibling;
+                if (body.style.display === "block") 
+                {
+                    body.style.display = "none";
+                } 
+                else 
+                {
+                    body.style.display = "block";
+                }
+            })
+        }
+    </script>
+</html>
