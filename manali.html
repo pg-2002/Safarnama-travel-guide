@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+<title>MANALI</title>
+<style>
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        text-decoration: none;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: black;
+        color: white;
+    }
+
+    :root{
+        --text-color: #fff;
+    --bg-color: #000;
+    --main-color: #ffa343;
+    }
+
+    .container {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 20px;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .img-container {
+        display: flex;
+        width: 100%;
+        animation: slide 8s linear 0s infinite normal;
+    }
+
+    img {
+        width: auto;
+        height: 81vh;
+        object-fit: contain;
+        margin: 0 10px;
+    }
+
+    @keyframes slide {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-263%);
+        }
+    }
+
+    header{
+    position:fixed;
+    top: 0;
+    right: 0;
+    z-index:1000;
+    width:100%;
+    background:transparent;
+    padding: 27px 17%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    transition:all .50s ease;
+}
+
+.logo{
+    font-size: 33px;
+    color:var(--text-color);
+    font-weight: 700;
+}
+span{
+    color:var(--main-color);
+}
+.navbar{
+    display:flex;
+}
+.navbar a{
+    color: var(--text-color);
+    font-size: var(--p-font);
+    font-weight: 500;
+    margin:15px 22px;
+    transition: all .50s ease;
+}
+
+.navbar a:hover{
+    color: var(--main-color);
+}
+
+.h-right{
+    display: flex;
+    align-items: center;
+}
+.h-right a:first-child{
+    color:var(--text-color);
+    font-size: var(--p-font);
+    margin-right:20px;
+}
+.h-right a{
+    vertical-align:middle;
+    font-size: 20px;
+    color: var(--text-color);
+    margin-right: 18px;
+    margin-left: 5px;
+    transition: all .50s ease;
+}
+
+.h-right a:hover{
+    color: var(--main-color);
+    transform: translateY(-3px);
+}
+#menu-icon{
+    color: var(--text-color);
+    font-size: 30px;
+    cursor:pointer;
+    z-index: 10001;
+    display:none;
+}
+header.sticky{
+    padding: 8px 17%;
+    background: transparent;
+    backdrop-filter: blur(35px);
+}
+
+    .front-img {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        margin-top: 90px;
+    }
+
+    .weatherWidget {
+        position: relative; 
+        top: -90px; 
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .package {
+        text-align: center;
+        margin-top: -20px;
+    }
+
+    .package span {
+        font-size: 3.5rem;
+        background: rgba(255, 165, 0, 0.2);
+        color: orange;
+        border-radius: .5rem;
+        padding: .2rem 1rem;
+    }
+
+    .package-row {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        flex-wrap: wrap;
+    }
+
+    .package-box {
+        position: relative;
+        width: calc(33.33% - 20px); 
+        margin: 0 10px;
+        text-align: center;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.3s ease;
+    }
+
+    .package-box:hover {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .package-box img {
+        width: 120%;
+        height: 280px; 
+        object-fit: cover; 
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .package-details {
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        text-align: left;
+        transition: top 0.3s ease;
+        transform: translateY(-100%);
+    }
+
+    .package-box:hover .package-details {
+        top: 0;
+        transform: translateY(0);
+    }
+
+    .package-details ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .package-details ul li {
+        margin-bottom: 10px;
+    }
+
+    .package-details ul li::before {
+        content: "•";
+        margin-right: 5px;
+    }
+
+    .package-box h4 {
+        color: orange; 
+        font-size: 1.2rem;
+    }
+
+    .price{
+        font-size: 1.5rem;
+        color: white;
+        padding-top: 1rem;
+    } 
+
+    .price span{
+        font-size: 1.0rem;
+        color: white;
+        text-decoration: line-through;
+    }
+
+    .book-now {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        padding: 10px 20px;
+        background-color: orange;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .book-now:hover {
+        background-color: #ff8c00;
+    }
+
+    .feature-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+        align-items: center;
+        text-align: center;
+    }
+
+    .row-img {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        margin-top: 100px;
+        margin-bottom: 20px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .row-img img {
+        width: 100%;
+        display: block;
+        transition: transform 0.3s ease;
+        object-fit: cover;
+    }
+
+    .row-img img:hover {
+        transform: scale(1.1);
+    }
+
+    .feature-content h4 {
+        font-size: 17px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all .50s ease;
+        color: white;
+    }
+
+    .feature-content h4:hover {
+        color: orange;
+    }
+
+    .search-bar {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        margin-top: 50px;
+        margin-bottom: 50px; 
+    }
+
+    .search-bar p {
+        font-size: large;
+        color: orange;
+        font-family: Arial, sans-serif;
+    }
+    
+    .search-bar input[type="search"] {
+        width: 300px;
+        padding: 8px;
+        border: 1px solid white;
+        border-radius: 5px;
+        background-color: transparent;
+        color: white;
+        transition: border-color 0.3s ease;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .search-bar input[type="search"]:focus {
+        outline: none;
+        border-color: orange;
+    }
+
+    .search-bar button {
+        padding: 8px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: orange;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .search-bar button:hover {
+        background-color: #ff8c00;
+    }
+
+    footer {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        padding: 20px;
+        text-align: center;
+        justify-items: center;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .footer-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-box h3 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .footer-box a {
+        color: #979797;
+        margin-bottom: 0.8rem;
+        transition: all .50s ease;
+    }
+
+    .footer-box a:hover {
+        transform: translateX(-5px);
+        color: orange;
+    }
+
+    .social {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 45px;
+        width: 45px;
+        background: #202020;
+        color: white;
+        font-size: 20px;
+        border-radius: 50%;
+        margin-bottom: 8px;
+        transition: transform 0.6s;
+    }
+
+    .social a:hover {
+        background: orange;
+        transform: translateX(-4px);
+    }
+
+    .copyright p {
+        text-align: center;
+        padding: 20px;
+        color: #979797;
+        font-size: 15px;
+    }
+
+</style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">SAFARNA<span>MA</span></a>
+
+        <ul class="navbar">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#feature">Information</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Contact us</a></li>
+        </ul>
+
+        <div class="h-right">
+            <a href="#">Follow us</a>
+            <a href="#"><i class='bx bxl-instagram' ></i></a>
+            <a href="#"><i class='bx bxl-twitter' ></i></a>
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="img-container">
+            <img src="..\images_mount\manali2.jpg">
+            <img src="..\images_mount\manali3.jpg">
+            <img src="..\images_mount\manali4.jpg">
+            <img src="..\images_mount\manali5.jpg">
+            <img src="..\images_mount\manali6.jpg">
+            <img src="..\images_mount\manali7.jpg">
+        </div>
+    </div>
+    <div id="home" class="front-img">
+        <center><img src="..\images_mount\manali1.jpg" alt="Image"></center>
+    </div>
+    <div class="weatherWidget"></div>
+
+    <div class="package">
+        <center>
+            <span>P</span>
+            <span>A</span>
+            <span>C</span>
+            <span>K</span>
+            <span>A</span>
+            <span>G</span>
+            <span>E</span>
+            <span>S</span>
+        </center>
+
+        <div class="package-row">
+            <div class="package-box">
+                <img src="..\images_mount\manali8.jpg" alt="Package 1">
+                <div class="package-details">
+                    <ul>
+                        <li>Standard hotel in Manali</li>
+                        <li>Breakfast included</li>
+                        <li>Paragliding in Solang Valley, visit to Rohtang Pass</li>
+                        <li>Cheaps transport facility</li>
+                    </ul><br><br>
+                    <p>Enjoy a 4day 3night trip with your family and freinds. At just &#8377;10000 per head at <b>Hotel Mount Point</b></p>
+                </div>
+                <h4>Mystical Manali</h4>
+                <div class="price">&#8377;10000 <span>&#8377;12000</span> </div>
+                <a href="#" class="book-now">Book Now</a>
+            </div>
+            
+            <div class="package-box">
+                <img src="..\images_mount\manali9.jpg" alt="Package 2">
+                <div class="package-details">
+                    <ul>
+                        <li>Deluxe cottage or hotel in Manali</li>
+                        <li>Private vehicle for sightseeing</li>
+                        <li>Exploring local tastes</li>
+                        <li>River rafting in Beas River, trekking to Solang Valley</li>
+                    </ul><br><br>
+                    <p>Explore 4day in Manali with your family and freinds at just &#8377;5000 per head.</p>
+                </div>
+                <h4>Blissful Heights</h4>
+                <div class="price">&#8377;5000 <span>&#8377;7000</span> </div>
+                <a href="#" class="book-now">Book Now</a>
+            </div>
+            
+            <div class="package-box">
+                <img src="..\images_mount\manali10.jpg" alt="Package 3">
+                <div class="package-details">
+                    <ul>
+                        <li>Family-friendly resort in Manali</li>
+                        <li>Visit to Hadimba Devi Temple, Tibetan Monastery</li>
+                        <li>Breakfast and Dinner included</li>
+                        <li>adventure activities at Adventure Park</li>
+                    </ul><br><br>
+                    <p>Plan a 1week trip for Manali and explore the Townies at just &#8377;15000 per head </p>
+                </div>
+                <h4>Fun Times in Manali</h4>
+                <div class="price">&#8377;15000 <span>&#8377;17000</span> </div>
+                <a href="#" class="book-now">Book Now</a>
+            </div>
+        </div>
+
+        <div class="package-row">
+            <div class="package-box">
+                <img src="..\images_mount\manali11.jpg" alt="Package 4">
+                <div class="package-details">
+                    <ul>
+                        <li>Honeymoon suite in a boutique resort</li>
+                        <li>Romantic stroll at Van Vihar</li>
+                        <li>Vashisht Hot Water Springs, Manu Temple</li>
+                        <li>Snowboarding, Trekking, Camping, Snowshoeing, etc</li>
+                        <li>Couple Spa Session</li>
+                    </ul><br><br>
+                    <p>Come for romantic tour in Manali with your partner at <b>Snow Vallye Resorts</b>. Make a 3day trip at just &#8377;30000 Hurry upp!!!</p>
+                </div>
+                <h4>Manali Delights</h4>
+                <div class="price">&#8377;30000 <span>&#8377;45000</span> </div>
+                <a href="#" class="book-now">Book Now</a>
+            </div>
+            
+            <div class="package-box">
+                <img src="..\images_mount\manali12.jpg" alt="Package 5">
+                <div class="package-details">
+                    <ul>
+                        <li>Standard hotel in Manali</li>
+                        <li>Exploring Manali's famous food</li>
+                        <li>Pickup and drop facility at low range</li>
+                        <li>River rafting in Beas River, trekking to Solang Valley</li>
+                    </ul><br><br>
+                    <p>Have a 2day 3night trip in Shimla at just &#8377;10000 per head at <b>Mount Heaven Hotels and Resorts</b></p>
+                </div>
+                <h4>Thrills of Manali</h4>
+                <div class="price">&#8377;10000 <span>&#8377;12000</span> </div>
+                <a href="#" class="book-now">Book Now</a>
+            </div>
+
+            <div class="package-box">
+                <img src="..\images_mount\manali13.jpg" alt="Package 6">
+                <div class="package-details">
+                    <ul>
+                        <li>Private luxury car and driver throughout the tour</li>
+                        <li>Helicopter ride to Rohtang Pass</li>
+                        <li>Visit to Manali Nature Park, Vashisht Hot Water Springs, Manu Temple</li>
+                        <li>Breakfast, lunch, and dinner included</li>
+                    </ul><br><br>
+                    <p>Enjoy a 3day luxory tour in Manali at just &#8377;30000 per head.</p>
+                </div>
+                <h4> Manali's Charms</h4>
+                <div class="price">&#8377;30000 <span>&#8377;35000</span> </div>
+                <a href="#" class="book-now">Book Now</a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="about" class="feature-content">
+        <div class="row">
+            <div class="row-img">
+                <a href="https://www.goibibo.com/hotels/hotels-in-manali-ct/"><img src="hotels.jpg"></a>
+            </div>
+            <h4>Hotel</h4>
+        </div>
+    
+        <div class="row">
+            <div class="row-img">
+                <a href="https://www.holidify.com/places/manali/restaurants-places-to-eat-local-cuisine.html"><img src="food.jpg"></a>
+            </div>
+            <h4>Food</h4>
+        </div>
+    
+        <div class="row">
+            <div class="row-img">
+                <a href="https://www.savaari.com/manali/book-taxi"><img src="trans.jpg"></a>
+            </div>
+            <h4>Transport</h4>
+        </div>
+    
+        <div class="row">
+            <div class="row-img">
+                <a href="https://traveltriangle.com/blog/shopping-in-manali/"><img src="shop.jpg"></a>
+            </div>
+            <h4>Attraction</h4>
+        </div>
+    
+        <div class="row">
+            <div class="row-img">
+                <a href="https://www.justdial.com/Manali/24-Hours-Chemists-in-Manali-Kullu/nct-10000359"><img src="emergency.jpg"></a>
+            </div>
+            <h4>Emergency</h4>
+        </div>
+    </div>
+    <div class="search-bar">
+        <p>Search what you need</p>
+        <form id="searchForm">
+            <input type="search" id="search" placeholder="Search...">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <footer>
+        <div class="footer-box">
+            <h3>Services</h3>
+            <a href="https://www.goibibo.com/hotels/hotels-in-manali-ct/">Hotels</a>
+            <a href="https://www.holidify.com/places/manali/restaurants-places-to-eat-local-cuisine.html">Food</a>
+            <a href="https://www.savaari.com/manali/book-taxi">Transport</a>
+            <a href="https://www.savaari.com/manali/book-taxi">Attraction</a>
+            <a href="https://www.justdial.com/Manali/24-Hours-Chemists-in-Manali-Kullu/nct-10000359">Emergency</a>
+        </div>
+        <div class="footer-box">
+            <h3>About</h3>
+            <a href="#">Our Story</a>
+        </div>
+        <div class="footer-box">
+            <h3>Help</h3>
+            <a href="#">FAQs</a>
+            <a href="#">Contact us</a>
+        </div>
+        <div class="social">
+            <h3>Social</h3>
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            var searchInput = document.getElementById('search').value.toLowerCase();
+            switch(searchInput) {
+                case 'food':
+                    window.location.href = 'https://www.holidify.com/places/manali/restaurants-places-to-eat-local-cuisine.html';
+                    break;
+                case 'cab':
+                    window.location.href = 'https://www.savaari.com/manali/book-taxi';
+                    break;
+                case 'medicine':
+                    window.location.href = 'https://www.justdial.com/Manali/24-Hours-Chemists-in-Manali-Kullu/nct-10000359';
+                    break;
+                case 'hotel':
+                    window.location.href = 'https://www.goibibo.com/hotels/hotels-in-manali-ct/';
+                    break;
+                case 'attraction':
+                    window.location.href = 'https://www.savaari.com/manali/book-taxi';
+                    break;
+                case 'market':
+                    window.location.href = 'https://www.universaladventures.in/travel-guide/shopping-places-in-manali';
+                    break;
+                case 'shops':
+                    window.location.href = 'https://traveltriangle.com/blog/shopping-in-manali/';
+                    break;
+                case 'religious':
+                    window.location.href = 'https://www.manalionline.in/city-guide/religious-spots-in-manali';
+                    break;
+                default:
+                    alert('Invalid search option');
+            }
+        });
+
+        window.weatherWidgetConfig =  window.weatherWidgetConfig || [];
+   window.weatherWidgetConfig.push({
+       selector:".weatherWidget",
+       apiKey:"G7L55WB43J37JXQLCB99Q244A", //Sign up for your personal key
+       location:"Manali, India", //Enter an address
+       unitGroup:"metric", //"us" or "metric"
+       forecastDays:5, //how many days forecast to show
+       title:"Manali", //optional title to show in the 
+       showTitle:true, 
+       showConditions:true
+   });
+  
+   (function() {
+   var d = document, s = d.createElement('script');
+   s.src = 'https://www.visualcrossing.com/widgets/forecast-simple/weather-forecast-widget-simple.js';
+   s.setAttribute('data-timestamp', +new Date());
+   (d.head || d.body).appendChild(s);
+   })();
+
+   const header=document.querySelector("header");
+        window.addEventListener("scroll",function(){
+            header.classList.toggle("sticky",window.scrollY>60)
+        });
+        
+    </script>
+</body>
+</html>

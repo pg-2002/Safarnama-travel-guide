@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+<title>MUSSORIE</title>
+<style>
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        text-decoration: none;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: black;
+        color: white;
+    }
+    :root{
+        --text-color: #fff;
+    --bg-color: #000;
+    --main-color: #ffa343;
+    }
+
+    .container {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 20px;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .img-container {
+        display: flex;
+        width: 100%;
+        animation: slide 8s linear 0s infinite normal;
+    }
+
+    img {
+        width: auto;
+        height: 81vh;
+        object-fit: contain;
+        margin: 0 10px;
+    }
+
+    @keyframes slide {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-263%);
+        }
+    }
+    header{
+    position:fixed;
+    top: 0;
+    right: 0;
+    z-index:1000;
+    width:100%;
+    background:transparent;
+    padding: 27px 17%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    transition:all .50s ease;
+}
+
+.logo{
+    font-size: 33px;
+    color:var(--text-color);
+    font-weight: 700;
+}
+span{
+    color:var(--main-color);
+}
+.navbar{
+    display:flex;
+}
+.navbar a{
+    color: var(--text-color);
+    font-size: var(--p-font);
+    font-weight: 500;
+    margin:15px 22px;
+    transition: all .50s ease;
+}
+
+.navbar a:hover{
+    color: var(--main-color);
+}
+
+.h-right{
+    display: flex;
+    align-items: center;
+}
+.h-right a:first-child{
+    color:var(--text-color);
+    font-size: var(--p-font);
+    margin-right:20px;
+}
+.h-right a{
+    vertical-align:middle;
+    font-size: 20px;
+    color: var(--text-color);
+    margin-right: 18px;
+    margin-left: 5px;
+    transition: all .50s ease;
+}
+
+.h-right a:hover{
+    color: var(--main-color);
+    transform: translateY(-3px);
+}
+#menu-icon{
+    color: var(--text-color);
+    font-size: 30px;
+    cursor:pointer;
+    z-index: 10001;
+    display:none;
+}
+header.sticky{
+    padding: 8px 17%;
+    background: transparent;
+    backdrop-filter: blur(35px);
+}
+
+    .front-img {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        margin-top: 90px;
+    }
+
+    .weatherWidget {
+        position: relative; 
+        top: -90px; 
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .package {
+        text-align: center;
+        margin-top: -20px;
+    }
+
+    .package span {
+        font-size: 3.5rem;
+        background: rgba(255, 165, 0, 0.2);
+        color: orange;
+        border-radius: .5rem;
+        padding: .2rem 1rem;
+    }
+
+    .package-row {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        flex-wrap: wrap;
+    }
+
+    .package-box {
+        position: relative;
+        width: calc(33.33% - 20px); 
+        margin: 0 10px;
+        text-align: center;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.3s ease;
+    }
+
+    .package-box:hover {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .package-box img {
+        width: 120%;
+        height: 280px; 
+        object-fit: cover; 
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .package-details {
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        text-align: left;
+        transition: top 0.3s ease;
+        transform: translateY(-100%);
+    }
+
+    .package-box:hover .package-details {
+        top: 0;
+        transform: translateY(0);
+    }
+
+    .package-details ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .package-details ul li {
+        margin-bottom: 10px;
+    }
+
+    .package-details ul li::before {
+        content: "•";
+        margin-right: 5px;
+    }
+
+    .package-box h4 {
+        color: orange; 
+        font-size: 1.2rem;
+    }
+
+    .price{
+        font-size: 1.5rem;
+        color: white;
+        padding-top: 1rem;
+    } 
+
+    .price span{
+        font-size: 1.0rem;
+        color: white;
+        text-decoration: line-through;
+    }
+
+    .book-now {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        padding: 10px 20px;
+        background-color: orange;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .book-now:hover {
+        background-color: #ff8c00;
+    }
+
+    .feature-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+        align-items: center;
+        text-align: center;
+    }
+
+    .row-img {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        margin-top: 100px;
+        margin-bottom: 20px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .row-img img {
+        width: 100%;
+        display: block;
+        transition: transform 0.3s ease;
+        object-fit: cover;
+    }
+
+    .row-img img:hover {
+        transform: scale(1.1);
+    }
+
+    .feature-content h4 {
+        font-size: 17px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all .50s ease;
+        color: white;
+    }
+
+    .feature-content h4:hover {
+        color: orange;
+    }
+
+    .search-bar {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        margin-top: 50px;
+        margin-bottom: 50px; 
+    }
+
+    .search-bar p {
+        font-size: large;
+        color: orange;
+        font-family: Arial, sans-serif;
+    }
+    
+    .search-bar input[type="search"] {
+        width: 300px;
+        padding: 8px;
+        border: 1px solid white;
+        border-radius: 5px;
+        background-color: transparent;
+        color: white;
+        transition: border-color 0.3s ease;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .search-bar input[type="search"]:focus {
+        outline: none;
+        border-color: orange;
+    }
+
+    .search-bar button {
+        padding: 8px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: orange;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .search-bar button:hover {
+        background-color: #ff8c00;
+    }
+
+    footer {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        padding: 20px;
+        text-align: center;
+        justify-items: center;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .footer-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-box h3 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .footer-box a {
+        color: #979797;
+        margin-bottom: 0.8rem;
+        transition: all .50s ease;
+    }
+
+    .footer-box a:hover {
+        transform: translateX(-5px);
+        color: orange;
+    }
+
+    .social {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 45px;
+        width: 45px;
+        background: #202020;
+        color: white;
+        font-size: 20px;
+        border-radius: 50%;
+        margin-bottom: 8px;
+        transition: transform 0.6s;
+    }
+
+    .social a:hover {
+        background: orange;
+        transform: translateX(-4px);
+    }
+
+    .copyright p {
+        text-align: center;
+        padding: 20px;
+        color: #979797;
+        font-size: 15px;
+    }
+
+</style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">SAFARNA<span>MA</span></a>
+
+        <ul class="navbar">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#feature">Information</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Contact us</a></li>
+        </ul>
+
+        <div class="h-right">
+            <a href="#">Follow us</a>
+            <a href="#"><i class='bx bxl-instagram' ></i></a>
+            <a href="#"><i class='bx bxl-twitter' ></i></a>
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="img-container">
+            <img src="..\images_mount\mussr2.jpg">
+            <img src="..\images_mount\mussr3.jpg">
+            <img src="..\images_mount\mussr4.jpg">
+            <img src="..\images_mount\mussr5.jpg">
+            <img src="..\images_mount\mussr6.jpg">
+            <img src="..\images_mount\mussr7.jpg">
+        </div>
+    </div>
+    <div id="home" class="front-img">
+        <center><img src="..\images_mount\mussr1.jpg" alt="Image"></center>
+    </div>
+    <div class="weatherWidget"></div>
+
+    <div class="package">
+        <center>
+            <span>P</span>
+            <span>A</span>
+            <span>C</span>
+            <span>K</span>
+            <span>A</span>
+            <span>G</span>
+            <span>E</span>
+            <span>S</span>
+        </center>
+
+        <div class="package-row">
+            <div class="package-box">
+                <img src="..\images_mount\mussr8.jpg" alt="Package 1">
+                <div class="package-details">
+                    <ul>
+                        <li>Staying at a cozy mountain retreat</li>
+                        <li>Taste the flavors of Uttarakhand</li>
+                        <li>Explore nearby attractions such as Gun Hill, Kempty Falls, and Camel's Back Road</li>
+                        <li>Get 50%-80% off on all tranports</li>
+                    </ul><br><br>
+                    <p>Experience the mesmerizing beauty of mountains at just &#8377;10000 per head for 3day 3night.</p>
+                </div>
+                <h4>Mussoorie Bliss</h4>
+                <div class="price">&#8377;10000 <span>&#8377;13000</span> </div>
+                <a href="#" class="book-now">Book Now</a>
+            </div>
+            
+            <div class="package-box">
+                <img src="..\images_mount\mussr9.png" alt="Package 2">
+                <div class="package-details">
+                    <ul>
+                        <li>Intimate stays in private villas</li>
+                        <li>Includes daily Breakfast and Dinner</li>
+                        <li>Adventure activities such as trekking, paragliding, and zip-lining</li>
+                        <li>Explore the local markets and get interact with local people</li>
+                    </ul><br><br>
+                    <p>Capture the breathtaking beauty of Uttarakhand at just &#8377;30000 per head for 2days.</p>
+                </div>
+                <h4>Mussoorie Voyage</h4>
+                <div class="price">&#8377;30000 <span>&#8377;35000</span> </div>
+                <a href="#" class="book-now">Book Now</a>
+            </div>
+            
+            <div class="package-box">
+                <img src="..\images_mount\mussr10.jpg" alt="Package 3">
+                <div class="package-details">
+                    <ul>
+                        <li>Stay in cozy cottages with romantic settings</li>
+                        <li>One day tour in Rishikesh and Haridwar</li>
+                        <li>Experience the tranquility of the Ganges River and visit temples</li>
+                        <li>Taste the Pahadi Cuisine</li>
+                    </ul><br><br>
+                    <p>Plan a chilling trip to Mussoorie with at just &#8377;7000 per head for 3days</p>
+                </div>
+                <h4>Tranquil Heights</h4>
+                <div class="price">&#8377;7000 <span>&#8377;10000</span> </div>
+                <a href="#" class="book-now">Book Now</a>
+            </div>
+        </div>
+
+        <div class="package-row">
+            <div class="package-box">
+                <img src="..\images_mount\mussr11.jpg" alt="Package 4">
+                <div class="package-details">
+                    <ul>
+                        <li>Travel through villages of Lachen and Lachung</li>
+                        <li>Attractions in and around Mussoorie</li>
+                        <li>Pick-up and drop facility included</li>
+                        <li>Exploring Robber's Cave, Sahastradhara waterfalls, and the Mindrolling Monastery</li>
+                        <li>Daily buffet breakfast to kickstart your day with energy.</li>
+                    </ul><br><br>
+                    <p>Immerse yourself in the ambiance of Mussoorie with your freinds and family at just &#8377;30000 per head.</p>
+                </div>
+                <h4>Adventure Alpine</h4>
+                <div class="price">&#8377;30000 <span>&#8377;35000</span> </div>
+                <a href="#" class="book-now">Book Now</a>
+            </div>
+            
+            <div class="package-box">
+                <img src="..\images_mount\mussr12.jpg" alt="Package 5">
+                <div class="package-details">
+                    <ul>
+                        <li>Visit to the temples and old heritages of Haridwatr.</li>
+                        <li>Adventure activities such as trekking, paragliding, and zip-lining.</li>
+                        <li>River rafting at Rishikesh</li>
+                        <li>Offering a blend of local and international flavors</li>
+                    </ul><br><br>
+                    <p>Have a 2day 3night trip to Mussoorie at just &#8377;25000 per head. </p>
+                </div>
+                <h4>Majestic Mussoorie</h4>
+                <div class="price">&#8377;25000 <span>&#8377;28000</span> </div>
+                <a href="#" class="book-now">Book Now</a>
+            </div>
+
+            <div class="package-box">
+                <img src="..\images_mount\mussr13.webp" alt="Package 6">
+                <div class="package-details">
+                    <ul>
+                        <li>Stay in a mount facing Hotel</li>
+                        <li>Breathtaking views of valleys, rivers, waterfalls</li>
+                        <li>Jungle safaris to spot tigers, elephants, deer, and a variety of bird species</li>
+                        <li>60% off on all tranport facilities</li>
+                    </ul><br><br>
+                    <p>Plan a 1week tour to Mussoorie with your family and friends at just &#8377;35000 per head.</p>
+                </div>
+                <h4>Cascading Clouds</h4>
+                <div class="price">&#8377;35000 <span>&#8377;40000</span> </div>
+                <a href="#" class="book-now">Book Now</a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="about" class="feature-content">
+        <div class="row">
+            <div class="row-img">
+                <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwjTsMn6wIOGAxUOVg8CHX0KAIYYABAAGgJ0Yg&ase=2&gclid=CjwKCAjwi_exBhA8EiwA_kU1Mvc57jXEIzI4R4UwBI4nhtbHV2mK2J3obkNgXfPi3j5TirbMCEcxPhoCQ8IQAvD_BwE&ohost=www.google.com&cid=CAESVuD2R9njhEn8FXOYvbkQ1bljPb8dWEDx6IuFOCqG2u_fjzAELbcMg0n4FYzZ1kuB2MmKiYXwhZurYPTF-JRWJncb11KXO0l_9fOYWpKuyNur0yRTKzK7&sig=AOD64_3l4d_VH5M9B8e-w3OJGqfLtXQc4w&q&nis=4&adurl&ved=2ahUKEwjc3MH6wIOGAxWtcfUHHSQKCacQ0Qx6BAgVEAM"><img src="hotels.jpg"></a>
+            </div>
+            <h4>Hotel</h4>
+        </div>
+    
+        <div class="row">
+            <div class="row-img">
+                <a href="https://www.tripoto.com/uttarakhand/trips/food-places-in-mussoorie-you-must-visit-61df043b0377e"><img src="food.jpg"></a>
+            </div>
+            <h4>Food</h4>
+        </div>
+    
+        <div class="row">
+            <div class="row-img">
+                <a href="https://www.savaari.com/mussoorie/book-taxi"><img src="trans.jpg"></a>
+            </div>
+            <h4>Transport</h4>
+        </div>
+    
+        <div class="row">
+            <div class="row-img">
+                <a href="https://www.jaypeehotels.com/blog/shopping-and-souvenirs-in-mussoorie-where-to-find-the-best-deals"><img src="shop.jpg"></a>
+            </div>
+            <h4>Shopping</h4>
+        </div>
+    
+        <div class="row">
+            <div class="row-img">
+                <a href="https://www.justdial.com/Mussoorie/Chemists/nct-10096237"><img src="emergency.jpg"></a>
+            </div>
+            <h4>Emergency</h4>
+        </div>
+    </div>
+    <div class="search-bar">
+        <p>Search what you need</p>
+        <form id="searchForm">
+            <input type="search" id="search" placeholder="Search...">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <footer>
+        <div class="footer-box">
+            <h3>Services</h3>
+            <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwjTsMn6wIOGAxUOVg8CHX0KAIYYABAAGgJ0Yg&ase=2&gclid=CjwKCAjwi_exBhA8EiwA_kU1Mvc57jXEIzI4R4UwBI4nhtbHV2mK2J3obkNgXfPi3j5TirbMCEcxPhoCQ8IQAvD_BwE&ohost=www.google.com&cid=CAESVuD2R9njhEn8FXOYvbkQ1bljPb8dWEDx6IuFOCqG2u_fjzAELbcMg0n4FYzZ1kuB2MmKiYXwhZurYPTF-JRWJncb11KXO0l_9fOYWpKuyNur0yRTKzK7&sig=AOD64_3l4d_VH5M9B8e-w3OJGqfLtXQc4w&q&nis=4&adurl&ved=2ahUKEwjc3MH6wIOGAxWtcfUHHSQKCacQ0Qx6BAgVEAM">Hotels</a>
+            <a href="https://www.tripoto.com/uttarakhand/trips/food-places-in-mussoorie-you-must-visit-61df043b0377e">Food</a>
+            <a href="https://www.savaari.com/mussoorie/book-taxi">Transport</a>
+            <a href="https://www.thrillophilia.com/places-to-visit-in-mussoorie">Attraction</a>
+            <a href="https://www.justdial.com/Mussoorie/Chemists/nct-10096237">Emergency</a>
+        </div>
+        <div class="footer-box">
+            <h3>About</h3>
+            <a href="#">Our Story</a>
+        </div>
+        <div class="footer-box">
+            <h3>Help</h3>
+            <a href="#">FAQs</a>
+            <a href="#">Contact us</a>
+        </div>
+        <div class="social">
+            <h3>Social</h3>
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            var searchInput = document.getElementById('search').value.toLowerCase();
+            switch(searchInput) {
+                case 'food':
+                    window.location.href = 'https://www.tripoto.com/uttarakhand/trips/food-places-in-mussoorie-you-must-visit-61df043b0377e';
+                    break;
+                case 'cab':
+                    window.location.href = 'https://www.savaari.com/mussoorie/book-taxi';
+                    break;
+                case 'medicine':
+                    window.location.href = 'https://www.justdial.com/Mussoorie/Chemists/nct-10096237';
+                    break;
+                case 'hotel':
+                    window.location.href = 'https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwikybjR5IWGAxVz0sIEHRRaC4QYABABGgJwdg&ase=2&gclid=CjwKCAjwrvyxBhAbEiwAEg_Kgi5AL7Jlqu3LS0fYmWL0fQbevIQMdvjfX92FiyN_fcVOck2Ek7-acRoClocQAvD_BwE&ei=mH0_ZpuQBavKseMPmIy_gAk&ohost=www.google.com&cid=CAESVuD2J5nzpBzHTKPnW1LNdZedE6PxefbWJ8hxP240i9LwKZv6DxilhzgH07Egol7VjrnOtFsrE3YILR9jAPXpXfOsRyP9SR8w3D37Pax20JQpByXHHMR1&sig=AOD64_38Aso6uuRDSfvhDPO9m5fg8pbTdA&q&sqi=2&nis=4&adurl&ved=2ahUKEwibvKfR5IWGAxUrZWwGHRjGD5AQ0Qx6BAgMEAE';
+                    break;
+                case 'attraction':
+                    window.location.href = 'https://www.thrillophilia.com/places-to-visit-in-mussoorie';
+                    break;
+                case 'market':
+                    window.location.href = 'https://www.tripadvisor.in/Attractions-g297689-Activities-c26-Mussoorie_Dehradun_District_Uttarakhand.html';
+                    break;
+                case 'shops':
+                    window.location.href = 'https://www.jaypeehotels.com/blog/shopping-and-souvenirs-in-mussoorie-where-to-find-the-best-deals';
+                    break;
+                case 'religious':
+                    window.location.href = 'https://travelsetu.com/guide/mussoorie-tourism/religious-places-near-mussoorie';
+                    break;
+                default:
+                    alert('Invalid search option');
+            }
+        });
+
+        window.weatherWidgetConfig =  window.weatherWidgetConfig || [];
+   window.weatherWidgetConfig.push({
+       selector:".weatherWidget",
+       apiKey:"G7L55WB43J37JXQLCB99Q244A", //Sign up for your personal key
+       location:"Mussoorie, India", //Enter an address
+       unitGroup:"metric", //"us" or "metric"
+       forecastDays:5, //how many days forecast to show
+       title:"Mussoorie", //optional title to show in the 
+       showTitle:true, 
+       showConditions:true
+   });
+  
+   (function() {
+   var d = document, s = d.createElement('script');
+   s.src = 'https://www.visualcrossing.com/widgets/forecast-simple/weather-forecast-widget-simple.js';
+   s.setAttribute('data-timestamp', +new Date());
+   (d.head || d.body).appendChild(s);
+   })();
+
+   const header=document.querySelector("header");
+        window.addEventListener("scroll",function(){
+            header.classList.toggle("sticky",window.scrollY>60)
+        });
+        
+    </script>
+</body>
+</html>
